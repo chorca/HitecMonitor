@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/bugst/go-serial"
-	"github.com/bugst/go-serial/enumerator"
+	"go.bug.st/serial"
+	"go.bug.st/serial/enumerator"
 )
 
 func start() (serial.Port, error) {
