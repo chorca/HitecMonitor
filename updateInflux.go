@@ -47,5 +47,4 @@ func updateInflux(inData chargerFrame, tag string, client influxdb2.Client) {
 		}
 	}
 	writeAPI.Flush()
-	return
 }

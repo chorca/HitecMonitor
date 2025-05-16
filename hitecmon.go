@@ -70,13 +70,13 @@ func main() {
 			To help eliminiate this, a simple timer.*/
 
 			// Unit updates at 1 or 2s intervals, this should be safe.
-			if time.Now().Sub(lastTime) > (time.Second * 5) {
+			if time.Since(lastTime) > (time.Second * 5) {
 				// Throw out this reading
 				fmt.Println("Throwing out old reading")
 				lineData = nil
 				fmt.Printf("Current time %s\n", time.Now().String())
 				fmt.Printf("last time: %s\n", lastTime.String())
-				fmt.Printf("Difference: %s\n", time.Now().Sub(lastTime).String())
+				fmt.Printf("Difference: %s\n", time.Since(lastTime).String())
 				lastTime = time.Now()
 				continue
 			}

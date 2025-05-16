@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 )
@@ -33,7 +32,7 @@ func parseConfig(configFile string) (ConfigJSON, error) {
 			if err != nil {
 				return config, err
 			}
-			err = ioutil.WriteFile(configFile, outData, 0644)
+			err = os.WriteFile(configFile, outData, 0644)
 			if err != nil {
 				return config, err
 			}
@@ -44,7 +43,7 @@ func parseConfig(configFile string) (ConfigJSON, error) {
 	}
 
 	// File existed, read and parse it
-	bytes, err := ioutil.ReadFile(configFile)
+	bytes, err := os.ReadFile(configFile)
 	if err != nil {
 		return config, err
 	}

@@ -36,5 +36,5 @@ func start() (serial.Port, error) {
 			return serPort, nil
 		}
 	}
-	return serPort, errors.New("Serial port not found")
+	return serPort, errors.New("serial port not found")
 }
