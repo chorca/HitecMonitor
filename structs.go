@@ -53,7 +53,3 @@ type ConfigJSON struct {
 	InfluxOrg     string `json:"influxOrg"`
 	ServerAddress string `json:"serverAddress"`
 }
-
-const influxToken = "lVLFJYjyKCd9SXbQBP4rbsvfsbvOjFGWGEAS6DqTarNnYLzv-CJ54S2mol3qEpiaFgWc5lpxLcWinfRoOoW5-A=="
-const influxBucket = "Hitec"
-const influxOrg = "Home"

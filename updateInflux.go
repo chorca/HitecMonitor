@@ -30,7 +30,7 @@ func updateInflux(inData chargerFrame, tag string, client influxdb2.Client) {
 	chgVoltPoint := fmt.Sprintf("chgvolt,user=%s,state=%t voltage=%.2f %d", tag, inData.chargeDischarge, inData.packVoltage, timeStamp.UnixNano())
 	chgMahPoint := fmt.Sprintf("chgmah,user=%s,state=%t,caplimit=%d,caplimiten=%t capacity=%d %d", tag, inData.chargeDischarge, inData.capLimit, inData.capCutoffOn, inData.mahCharged, timeStamp.UnixNano())
 	chgTimePoint := fmt.Sprintf("chgtime,user=%s,state=%t,timelimit=%d minutes=%d %d", tag, inData.chargeDischarge, inData.timeLimit, inData.totalTime, timeStamp.UnixNano())
-	writeAPI := client.WriteAPI(influxOrg, influxBucket)
+	writeAPI := client.WriteAPI(config.InfluxOrg, config.InfluxBucket)
 	writeAPI.WriteRecord(chgCurrPoint)
 	writeAPI.WriteRecord(chgVoltPoint)
 	writeAPI.WriteRecord(chgMahPoint)

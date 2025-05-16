@@ -9,6 +9,8 @@ import (
 	influxdb2 "github.com/influxdata/influxdb-client-go"
 )
 
+var config ConfigJSON
+
 func main() {
 	var userTag string
 	var useInflux bool
@@ -21,9 +23,11 @@ func main() {
 	// Defined cause go doesn't like when you define inside ifs.
 	var influxClient influxdb2.Client
 
+	var err error
+
 	// Start up influx client
 	if useInflux {
-		config, err := parseConfig(configFile)
+		config, err = parseConfig(configFile)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
